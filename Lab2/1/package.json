@@ -1,0 +1,12 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "live-server --port=4200"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "v-calendar": "^2.2.4",
+    "vue-slider-component": "^3.2.11"
+  }
+}
