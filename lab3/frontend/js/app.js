@@ -1,6 +1,9 @@
 var app = new Vue({
-    el: '#hamming-encoder', data: {
-        dataBits: [], status: '', numberOfDataBits: 4
+    el: '#hamming-encoder',
+    data: {
+        dataBits: [],
+        status: '',
+        numberOfDataBits: 4
     },
     created: function () {
         this.initDataBits(4);
@@ -23,20 +26,20 @@ var app = new Vue({
                 this.status = 'Input is not valid. Please use 0 or 1 as data bit values';
             }
         },
+
         encode: function (bits) {
 
             var c4 = this.parity(parseInt(bits[1].data) + parseInt(bits[2].data) + parseInt(bits[3].data));
-            var c2 = this.parity(parseInt(bits[0].data) +
-                parseInt(bits[2].data) + parseInt(bits[3].data));
+            var c2 = this.parity(parseInt(bits[0].data) + parseInt(bits[2].data) + parseInt(bits[3].data));
             var c1 = this.parity(parseInt(bits[0].data) + parseInt(bits[1].data) + parseInt(bits[3].data));
             console.log("Control bits: " + c1 + "," + c2 + "," + c4);
-            return [c1, c2, parseInt(bits[0].data), c4,
-                parseInt(bits[1].data), parseInt(bits[2].data
-                ), parseInt(bits[3].data)];
+            return [c1, c2, parseInt(bits[0].data), c4, parseInt(bits[1].data), parseInt(bits[2].data), parseInt(bits[3].data)];
         },
+
         parity: function (number) {
             return number % 2;
         },
+
         validate: function (bits) {
             for (var i = 0; i < bits.length; i++) {
                 if (this.validateBit(bits[i].data) === false)
@@ -44,6 +47,7 @@ var app = new Vue({
             }
             return true;
         },
+
         validateBit: function (character) {
             if (character === null) return false;
         }
