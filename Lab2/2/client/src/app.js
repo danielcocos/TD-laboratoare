@@ -5,10 +5,11 @@ function run() {
       users: [],
       usersService: null,
     },
-    created: async function  () {
+    created: async function () {
       this.usersService = users();
-      this.usersService.post({name:"TESST", city:"Cluj"}).then((response) => {this.users=response.data.data});
-     
+      this.usersService.get().then((response) => {
+        this.users = response.data;
+      });
     },
     methods: {},
   });
